@@ -14,8 +14,31 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('hello');
+})->name('hello');
 
 
 
+Route::get('/home', function () {
+    $data = [
+        'presentazione' => 'Ciao! Questa è la nostra pagina web!'
+    ];
+    return view('home', $data);
+})->name('pagina-web');
+
+
+Route::get('/proposte', function () {
+    $data = [
+        'vetrine' => ['Pacchetto HTML', 'Pacchetto HTML-CSS', 'Pacchetto HTML-CSS-JS', 'Pacchetto HTML-CSS-JS-PHP']
+    ];
+    return view('proposte', $data);
+})->name('cosa-proponiamo');
+
+
+Route::get('/indirizzo', function () {
+    $data = [
+        'sito' => 'www.boolean.careers',
+        'mail' => 'boolean.careers@gmail.com'
+    ];
+    return view('indirizzo', $data);
+})->name('indirizzo-ip');
